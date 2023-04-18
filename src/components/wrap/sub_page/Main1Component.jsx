@@ -1,27 +1,33 @@
 import React from "react";
+import Main1ChildComponent from "./main1_child/Main1ChildComponent";
+import axios from "axios";
 
 export default function Main1Component(){
 
+    // 1. 상태관리 (항상 상태관리가 먼저 되어야 함)
+    const [state, setState] = React.useState({
+        신상품 : []
+    });
 
-    //스크립트 생성함수
-    const scriptCreateElement=(src)=>{
-        const scriptElement = document.createElement('script');
-        scriptElement.setAttribute('id', 'script');
-        scriptElement.setAttribute('src','./js/main1_script.js');
-        document.body.appendChild(scriptElement);
-    }
-
-    //리액트 훅
+    // 2. AXIOS => 데이터 가져와서 상태변경
     React.useEffect(()=>{
-        scriptCreateElement('./js/main1_script.js');
-    },[]);
+        axios({
+            url:'./json_data/new_product.json',
+            method:'GET'
+        })
+        .then((res)=>{
 
-    //생성된 요소 제거
-    React.useEffect(()=>{
-        let parentElement = document.getElementById('script').parentElement;
-        let childElement = document.getElementById('script');
-        parentElement.removeChild(childElement);
-    },[]);
+            if(res.status===200){
+                setState({
+                    ...state,
+                    신상품 : res.data.신상품
+                })
+            }
+        })
+        .catch((err)=>{
+            console.log('AXIOS 실패',err);
+        });
+    });
 
 
 
@@ -135,11 +141,9 @@ export default function Main1Component(){
                                 <a href="!#" className='order-btn'>높은가격순</a>
                             </span>   
                         </div>
-                        <ul className="new-product-gallery">
 
-                            {/* 스크립트 비동기방식 AJAX API  구현 바인딩 */}
-
-                        </ul>
+                        <Main1ChildComponent 신상품={state.신상품}/>
+                       
                         </div>
                     </div>    
                 </div>
