@@ -1,12 +1,12 @@
 import React from "react";
-import Main1ChildComponent from "./main_child/Main1ChildComponent";
+import Main2ChildComponent from "./main_child/Main2ChildComponent";
 import axios from "axios";
 
-export default function Main1Component(){
+export default function Main2Component(){
 
     // 1. 상태관리 (항상 상태관리가 먼저 되어야 함)
     const [state, setState] = React.useState({
-        신상품 : []
+        베스트 : []
     });
 
     // 2. AXIOS => 데이터 가져와서 상태변경
@@ -20,14 +20,14 @@ export default function Main1Component(){
             if(res.status===200){
                 setState({
                     ...state,
-                    신상품 : res.data.신상품
+                    베스트 : res.data.베스트
                 })
             }
         })
         .catch((err)=>{
             console.log('AXIOS 실패',err);
         });
-    },[state.신상품]);
+    },[state.베스트]);
 
 
 
@@ -47,7 +47,7 @@ export default function Main1Component(){
             <section id="section2">
                 <div className="container">
                     <div className="title">
-                        <h2>신상품</h2>
+                        <h2>베스트</h2>
                     </div>    
                     <div className="content">
                         <div className="left">
@@ -142,7 +142,7 @@ export default function Main1Component(){
                             </span>   
                         </div>
 
-                        <Main1ChildComponent 신상품={state.신상품}/>
+                        <Main2ChildComponent 베스트={state.베스트}/>
                        
                         </div>
                     </div>    

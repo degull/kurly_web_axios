@@ -1,7 +1,37 @@
 import React from 'react';
-import {Link, Outlet} from 'react-router-dom';
+import {Link, Outlet, useLocation} from 'react-router-dom';
+import $ from 'jquery';
 
 export default function HeaderComponent(){
+
+   // 라우터 url 정보를 가져오기
+   const userLocation = useLocation();
+
+   const [state, setState] = React.useState({
+      isNavBtn1 : false,
+      isNavBtn2 : false,
+      isNavBtn3 : false,
+      isNavBtn4 : false
+   })
+
+   
+
+   React.useEffect(()=>{
+      $('.main-btn').on({
+         click(e){
+            e.preventDefault();
+            
+            $('.main-btn').removeClass('on');
+            $(this).addClass('on');
+            console.log(useLocation);
+         }
+      });
+   })
+
+
+
+
+
    return (
       <>
          <header id="header"> 
@@ -9,12 +39,12 @@ export default function HeaderComponent(){
          <div className="row1">
             <div className="container">
                <ul>
-                  <li><Link to="/회원가입">회원가입</Link></li>
+                  <li><Link to="/signup">회원가입</Link></li>
                   <li><i>|</i></li>
-                  <li><a href="./member/sign_login">로그인</a></li>
+                  <li><a href="./signin">로그인</a></li>
                   <li><i>|</i></li>
                   <li className="service-box">
-                     <Link to="./member/board/board1" className="service-center-btn">고객센터<img src="./img/ico_down_16x10.png" alt=""/></Link>
+                     <Link to="./callcenter" className="service-center-btn">고객센터<img src="./img/ico_down_16x10.png" alt=""/></Link>
                      <div className="top-tooltip">
                         <ul>
                            <li><Link to="/공지사항">공지사항</Link></li>
@@ -33,7 +63,7 @@ export default function HeaderComponent(){
                   <ul>
                      <li> 
                         <h1>
-                           <Link to="/메인" title="마켓컬리">
+                           <Link to="/intro" title="마켓컬리">
                               <img src="./img/logo_kurly.svg" alt=""/>
                               <span>마켓컬리</span>   
                            </Link>
@@ -92,10 +122,10 @@ export default function HeaderComponent(){
                </div>
                <div className="center">
                   <ul>
-                     <li><Link to="./신상품" className="main-btn on" title="신상품">신상품</Link></li>
-                     <li><Link to="./베스트" className="main-btn" title="베스트">베스트</Link></li>
-                     <li><Link to="./알뜰쇼핑" className="main-btn" title="알뜰쇼핑">알뜰쇼핑</Link></li>
-                     <li><Link to="./특가/혜택" className="main-btn" title="특가/혜택">특가/혜택</Link></li>
+                     <li><Link to="./main1" className={`main-btn ${state.isNavBtn1?' on' :''}`} title="신상품">신상품</Link></li>
+                     <li><Link to="./main2" className={`main-btn ${state.isNavBtn2?' on' :''}`} title="베스트">베스트</Link></li>
+                     <li><Link to="./main3" className={`main-btn ${state.isNavBtn3?' on' :''}`} title="알뜰쇼핑">알뜰쇼핑</Link></li>
+                     <li><Link to="./main4" className={`main-btn ${state.isNavBtn4?' on' :''}`} title="특가/혜택">특가/혜택</Link></li>
                   </ul>
                </div>
                <div className="right">

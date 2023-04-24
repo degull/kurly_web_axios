@@ -10,6 +10,7 @@ import IntroModalComponent from './wrap/IntroModalComponent';
 import QuickMenuComponent from './wrap/QuickMenuComponent';
 import GoTopComponent from './wrap/GoTopComponent';
 import Main1Component from './wrap/sub_page/Main1Component';
+import Main2Component from './wrap/sub_page/Main2Component';
 import SignUpComponent from './wrap/sub_page/SignUpComponent';
 
 
@@ -87,9 +88,12 @@ export default function WrapComponent(){
             <Routes>
                <Route path='/' element={<HeaderComponent/>}>
                   <Route index element={<MainComponent/>}></Route>
-                  <Route path='메인' element={<MainComponent/>}></Route>
-                  <Route path='신상품' element={<Main1Component/>}></Route>
-                  <Route path='회원가입' element={<SignUpComponent setCountPlay={setCountPlay}  setId={state.setId}   seconds={state.seconds}    minutes={state.minutes}/>}></Route>
+                  <Route path='intro' element={<MainComponent/>}></Route>
+                  <Route path='main1' element={<Main1Component/>}></Route>
+                  <Route path='main2' element={<Main2Component/>}></Route>
+{/*                   <Route path='main3' element={<Main3Component/>}></Route>
+                  <Route path='main4' element={<Main4Component/>}></Route> */}
+                  <Route path='signup' element={<SignUpComponent setCountPlay={setCountPlay}  setId={state.setId}   seconds={state.seconds}    minutes={state.minutes}/>}></Route>
                </Route>
             </Routes>
          </BrowserRouter>
