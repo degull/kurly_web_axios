@@ -135,7 +135,7 @@ export default function Main1Component(){
                             <span>
                                 <a href="!#" className='order-btn'>추천순</a>
                                 <a href="!#" className='order-btn on'>신상품순</a>
-                                <a href="!#" className='order-btn'>판마량순</a>
+                                <a href="!#" className='order-btn'>판매량순</a>
                                 <a href="!#" className='order-btn'>혜택순</a>
                                 <a href="!#" className='order-btn'>낮은가격순</a>
                                 <a href="!#" className='order-btn'>높은가격순</a>

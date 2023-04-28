@@ -55,7 +55,7 @@ export default function MainComponent(){
             <div className="slide-container">
 
                <div className="slide-view">
-                  <ul className="slide-wrap">      
+                  <ul className="slide-wrap">    {/* 스와이프 대상 */}  
 
                   {/*   <!-- li*20>a[href=#]>img[src=./img/main_slide$$.jpg] -->*/}   
                   <li className="slide slide20"><a href="!#"><img src="./img/main_slide20.jpg" alt=""/></a></li>
