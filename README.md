@@ -12,7 +12,7 @@
 ## 구현 페이지 소개
 ### MAINPAGE
 
-![React App Kurly](https://github.com/degull/kurly_web_axios/assets/99521386/fa7e1aa0-ba01-410c-89e9-da005f3f73d3)
+
 
  (Quickmenu / topmodal / popup)
  </br>
