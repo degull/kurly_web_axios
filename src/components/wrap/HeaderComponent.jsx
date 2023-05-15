@@ -41,7 +41,7 @@ export default function HeaderComponent(){
                <ul>
                   <li><Link to="/signup">회원가입</Link></li>
                   <li><i>|</i></li>
-                  <li><a href="./signin">로그인</a></li>
+                  <li><a href="/signin">로그인</a></li>
                   <li><i>|</i></li>
                   <li className="service-box">
                      <Link to="./callcenter" className="service-center-btn">고객센터<img src="./img/ico_down_16x10.png" alt=""/></Link>
