@@ -14,6 +14,7 @@
 ### MAINPAGE
 
 ![](https://velog.velcdn.com/images/skysh0929/post/f09c6add-8bec-48af-b063-0daffb2f8275/image.gif)
+
 <br>
 
 좌측 중앙에 QuickMenu와 맨 위로 가는 TopModal을 생성했다.
